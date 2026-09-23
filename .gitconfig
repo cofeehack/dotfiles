@@ -1,0 +1,67 @@
+[user]
+    name = cofeehack                                          # Tu nombre de usuario para los commits.
+    email = edwinbmx3@gmail.com                               # Tu correo electrónico asociado a los commits.
+    signingkey = ~/.ssh/id_ed25519.pub                        # Ruta de tu llave pública SSH para firmar commits.
+
+[gpg]
+    format = ssh                                              # Utiliza claves SSH para las firmas criptográficas de seguridad.
+
+[commit]
+    gpgsign = true                                            # Fuerza a que todos tus commits se firmen digitalmente de forma obligatoria.
+    verbose = true                                            # Muestra el diff completo dentro del editor al redactar el mensaje de un commit.
+
+[tag]
+    gpgsign = true                                            # Fuerza a que las etiquetas (tags) también sefirmen con tu llave SSH.
+
+[core]
+    editor = nvim                                             # Establece a Neovim como tu editor por defecto para Git.
+    pager = delta                                             # Usa la herramienta 'delta' para mostrar diferencias con colores y estilos avanzados.
+
+[interactive]
+    diffFilter = delta --color-only                           # Aplica el filtro visual de delta de forma interactiva manteniendo los colores.
+
+[include]
+    path = ~/.config/delta/themes.gitconfig                   # Importa un archivo externo con temas de configuración para delta.
+
+[delta]
+    features = mellow-barbet                                  # Selecciona el tema visual específico 'mellow-barbet' para delta.
+
+[column]
+    ui = auto                                                 # Muestra los listados de Git (como ramas) en formato de columnas cuando el espacio lo permite.
+
+[branch]
+    sort = -committerdate                                     # Ordena las listas de ramas locales mostrando las más recientes primero.
+
+[tag]
+    sort = version:refname                                    # Ordena las etiquetas (tags) lógicamente usando números de versión.
+
+[init]
+    defaultBranch = main                                      # Configura 'main' como el nombre predeterminado para las nuevas ramas principales.
+
+[diff]
+    algorithm = histogram                                     # Usa el algoritmo de histograma para calcular diferencias con máxima precisión.
+    colorMoved = plain                                        # Resalta de forma plana las líneas de código que solo cambiaron de posición.
+    mnemonicPrefix = true                                     # Utiliza prefijos nemotécnicos en los diffs para identificar origen y destino.
+    renames = true                                            # Detecta automáticamente cuando un archivo ha sido renombrado en lugar de creado desde cero.
+
+[push]
+    default = simple                                          # Evita enviar ramas por accidente a menos que coincidan los nombres con el remoto.
+    autoSetupRemote = true                                    # Configura automáticamente el seguimiento remoto al hacer push por primera vez en una rama nueva.
+    followTags = true                                         # Envía también las etiquetas locales asociadas al hacer push.
+
+[fetch]
+    prune = true                                              # Borra automáticamente de tu máquina las referencias a ramas remotas que ya fueron eliminadas.
+    pruneTags = true                                          # Elimina etiquetas locales obsoletas que ya no existen en el servidor remoto.
+    all = true                                                # Trae los cambios de todos los remotos configurados al ejecutar git fetch.
+
+[help]
+    autocorrect = prompt                                      # Te pregunta antes de ejecutar automáticamente un comando si escribiste mal su nombre.
+
+[rerere]
+    enabled = true                                            # Activa 'Reuse Recorded Resolution' para recordar cómo resolviste un conflicto de fusión anterior.
+    autoupdate = true                                         # Actualiza automáticamente los archivos cuando rerere logra solucionar un conflicto por ti.
+
+[rebase]
+    autoSquash = true                                         # Agrupa de forma automática los commits marcados como 'squash' o 'fixup' durante un rebase.
+    autoStash = true                                          # Guarda temporalmente los cambios locales sin confirmar antes de un rebase y los restaura al terminar.
+    updateRefs = true                                         # Actualiza las referencias dependientes de forma automática durante un rebase.
